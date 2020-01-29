@@ -1,0 +1,24 @@
+
+let x: number = Math.randomRange(0, 4) //randomize coords
+let y: number = Math.randomRange(0, 4)
+let ball = game.createSprite(x, y)     //initialization of sprite
+
+input.onButtonPressed(Button.A, function () {
+
+    ball.turn(Direction.Right, 45)     //method to change direction on button press
+
+})
+
+input.onButtonPressed(Button.B, function () {
+
+    ball.set(LedSpriteProperty.X, Math.randomRange(0, 4)) //method to make the
+    ball.set(LedSpriteProperty.Y, Math.randomRange(0, 4)) //b button move the ball
+})
+
+basic.forever(function () {
+
+    ball.move(1)                        //method to make the ball move
+    ball.ifOnEdgeBounce()
+    basic.pause(10)
+
+})
